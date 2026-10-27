@@ -1,0 +1,44 @@
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/
+*.egg-info/
+
+# Local editor and operating system files
+.idea/
+.vscode/
+.DS_Store
+._*
+Thumbs.db
+
+# Credentials and local environment configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Datasets, model weights, and generated experiment output
+/dataset/
+/log_all/
+/results/
+/satpose_test_p0/
+/checkpoint/
+*.npz
+*.npy
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.log
