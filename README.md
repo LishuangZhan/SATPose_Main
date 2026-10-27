@@ -2,11 +2,11 @@
 
 基于 PyTorch 的人体姿态估计代码，使用二维关键点和压力数据。仓库保存训练、评估和数据处理源码；大文件通过 [reproduction-v1 Release](https://github.com/LishuangZhan/SATPose_Main/releases/tag/reproduction-v1) 提供。
 
-**复现材料：两个历史命令引用的权重、完整姿态标注和帧索引通过 Release 提供；压力数据已由作者在其他位置独立发布，本仓库不重复存储。请另行取得该数据后按下述布局配置。当前版本尚未重新验证论文指标。** 仓库当前为私有，复现者需要仓库访问权限。
+**复现材料：两个历史命令引用的权重、完整姿态标注和帧索引通过 Release 提供；压力数据已在其他位置独立发布，本仓库不重复存储。** 仓库当前为私有，复现者需要仓库访问权限。
 
 ## 1. 环境
 
-推荐在有 NVIDIA GPU 的环境中运行完整训练和评估，现有入口使用 CUDA。`requirements.txt` 是本次检查过的兼容依赖组合，不是原始训练环境导出。历史记录只写了 `pycode/py37/fms` 环境名，无法据此恢复准确版本。
+推荐在有 NVIDIA GPU 的环境中运行完整训练和评估，现有入口使用 CUDA。
 
 ```bash
 python3.12 -m venv .venv
@@ -14,11 +14,9 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Windows 激活命令为 `.venv\Scripts\activate`。PyTorch 的 CUDA 安装包需要与机器驱动适配；这里固定的 PyTorch/torchvision 版本为 `2.2.2/0.17.2`。验证工具使用 Python 3.11+ 的标准库，建议统一使用 Python 3.12。`tools/` 下独立可视化实验可能还需 `matplotlib`、`pyqtree`，不影响主训练与评估依赖。
-
 ## 2. 下载权重和姿态数据
 
-Release 包含两个权重（每个 111,312,535 字节）和 `pim-pose-annotations.zip`。权重超过普通 Git 的单文件限制，所以没有放进 Git 历史。
+Release 包含两个权重（每个 111,312,535 字节）和 `pim-pose-annotations.zip`。
 
 登录有访问权限的 GitHub 账号后，可以在仓库根目录执行：
 
