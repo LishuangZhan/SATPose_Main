@@ -12,7 +12,8 @@
     "recorded_16_action_test_frames": 119787,
     "aligned_2d_3d_ids": true,
     "finite_pose_values": true,
-    "pressure_dataset_uploaded": false
+    "pressure_dataset_uploaded": false,
+    "pressure_dataset_distribution": "Already independently published by the author; obtain separately. URL pending."
   },
   "checkpoints": [
     {
@@ -68,6 +69,13 @@
     "root_path_without_trailing_separator": true,
     "release_install_and_repeat": true,
     "different_local_file_not_overwritten": true,
-    "pressure_package_byte_identical_round_trip_frames": 5
+    "pressure_package_byte_identical_round_trip_frames": 5,
+    "keypoint_scale_default_and_archived": true,
+    "invalid_keypoint_scales_rejected": true
+  },
+  "keypoint_scale": {
+    "default": 1.0,
+    "archived_value": 1.075,
+    "full_metrics_rerun": false
   }
 }

@@ -22,6 +22,7 @@ class Fusion(data.Dataset):
         # print(self.stride)
         # exit()
         self.crop_uv = opt.crop_uv
+        self.keypoint_scale = opt.keypoint_scale
         self.test_aug = opt.test_augmentation
         self.pad = opt.pad
         if self.train:
@@ -90,7 +91,7 @@ class Fusion(data.Dataset):
                 for cam_idx, kps in enumerate(keypoints[subject][action]):
                     # cam = dataset.cameras()[subject][cam_idx]
                     if self.crop_uv == 0:
-                        scale_factor = 1.075  # 缩放因子
+                        scale_factor = self.keypoint_scale  # 1.0: original coordinates; 1.075: archived perturbation
                         if scale_factor <= 1:
                             # 缩放因子<1,相机前移，画面内容减少
                             kps[:, 0] = (kps[:, 0] / 1280 - (1 - scale_factor) / 2) / scale_factor * 1280

@@ -18,6 +18,8 @@ class opts():
         self.parser.add_argument('--reverse_augmentation', type=bool, default=False)
         self.parser.add_argument('--test_augmentation', type=bool, default=True)
         self.parser.add_argument('--crop_uv', type=int, default=0)
+        self.parser.add_argument('--keypoint_scale', type=float, default=1.0,
+                                 help='2D keypoint scale: 1.0 for unperturbed input; 1.075 for the archived experiment')
         self.parser.add_argument('--root_path', type=str, default='dataset/')
         self.parser.add_argument('--pressure_root', type=str, default='dataset/PIMDataset_pro_V2',
                                  help='Root containing pressure subject folders such as p6cxw')
@@ -64,6 +66,8 @@ class opts():
         self.opt = self.parser.parse_args()
         self.opt.root_path = os.path.join(os.path.expanduser(self.opt.root_path), '')
         self.opt.pressure_root = os.path.expanduser(self.opt.pressure_root)
+        if not math.isfinite(self.opt.keypoint_scale) or self.opt.keypoint_scale <= 0:
+            self.parser.error('--keypoint_scale must be a finite positive number')
 
         if self.opt.test:
             self.opt.train = 0
