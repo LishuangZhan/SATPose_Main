@@ -2,7 +2,7 @@
 
 基于 PyTorch 的人体姿态估计代码，使用二维关键点和压力数据。仓库保存训练、评估和数据处理源码；大文件通过 [reproduction-v1 Release](https://github.com/LishuangZhan/SATPose_Main/releases/tag/reproduction-v1) 提供。
 
-**复现材料：两个历史命令引用的权重、完整姿态标注和帧索引通过 Release 提供；压力数据已在其他位置独立发布，本仓库不重复存储。** 仓库当前为私有，复现者需要仓库访问权限。
+**复现材料：两个历史命令引用的权重、完整姿态标注和帧索引通过 Release 提供；压力数据已在其他位置独立发布，本仓库不重复存储。** 仓库已公开，任何人都可以查看源码并下载 Release 附件。
 
 ## 1. 环境
 
@@ -18,7 +18,7 @@ python -m pip install -r requirements.txt
 
 Release 包含两个权重（每个 111,312,535 字节）和 `pim-pose-annotations.zip`。
 
-登录有访问权限的 GitHub 账号后，可以在仓库根目录执行：
+使用已配置的 GitHub CLI，可以在仓库根目录执行以下命令；也可无需登录，直接从 Release 页面下载附件：
 
 ```bash
 gh release download reproduction-v1 --repo LishuangZhan/SATPose_Main --dir .artifacts --pattern '*.pth' --pattern 'pim-pose-annotations.zip'
