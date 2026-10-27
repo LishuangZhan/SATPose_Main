@@ -45,7 +45,7 @@ def step(split, opt, actions, dataLoader, model, optimizer=None, epoch=None):
     action_error_sum = define_error_list(actions)
     action_error_sum_refine = define_error_list(actions)
     for i, data in enumerate(tqdm(dataLoader, 0)):
-        batch_cam, gt_3D, input_2D, action, subject, scale, bb_box, cam_ind, input_pressure = data
+        batch_cam, gt_3D, input_2D, action, subject, scale, bb_box, cam_ind, input_pressure, _frame_id = data
 
         # encapsulate as PyTorch Variable objects
         [input_2D, gt_3D, batch_cam, scale, bb_box, input_pressure] = get_varialbe(split,

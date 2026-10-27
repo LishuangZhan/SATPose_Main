@@ -19,6 +19,8 @@ class opts():
         self.parser.add_argument('--test_augmentation', type=bool, default=True)
         self.parser.add_argument('--crop_uv', type=int, default=0)
         self.parser.add_argument('--root_path', type=str, default='dataset/')
+        self.parser.add_argument('--pressure_root', type=str, default='dataset/PIMDataset_pro_V2',
+                                 help='Root containing pressure subject folders such as p6cxw')
         self.parser.add_argument('-a', '--actions', default='*', type=str)
         # self.parser.add_argument('-a', '--actions',
         #                          default='walking(stable),walking(round),waist turning,deep squat,twisting,arm-waving,hurdle step,standing on toes,side-walking,bending,hand movements,posing,taking photo,waiting',
@@ -60,6 +62,8 @@ class opts():
     def parse(self):
         self.init()
         self.opt = self.parser.parse_args()
+        self.opt.root_path = os.path.join(os.path.expanduser(self.opt.root_path), '')
+        self.opt.pressure_root = os.path.expanduser(self.opt.pressure_root)
 
         if self.opt.test:
             self.opt.train = 0

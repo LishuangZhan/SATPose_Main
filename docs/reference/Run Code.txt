@@ -1,0 +1,7 @@
+conda activate pycode/py37/fms 重建网络、openpose、预测网络环境
+
+python main_vat_p0.py --batch_size 64 --checkpoint pressure_2d_multiframe_fake_p0  --data_augmentation False --test_augmentation False
+
+python eval_vat_p0.py --reload --previous_ckpt log_all/2d_p0_5823.pth
+
+python eval_vat_p0.py --reload --previous_ckpt log_all/no_refine_40_5453.pth --batch_size 8 --actions 'walking(stable),waist turning,deep squat,twisting,inline lunge,arm-waving,hurdle step,standing on toes,bending,sitting,push-ups,hand movements,posing,Active Straight-Leg Raise,waiting,Rotary Stability'

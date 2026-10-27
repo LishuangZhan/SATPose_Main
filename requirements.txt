@@ -1,0 +1,7 @@
+# Compatible environment checked on Python 3.12 / macOS CPU.
+# This is not an export of the original training environment.
+torch==2.2.2
+torchvision==0.17.2
+numpy==1.26.4
+einops==0.7.0
+tqdm==4.66.2

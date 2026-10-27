@@ -60,7 +60,7 @@ def step(split, opt, actions, dataLoader, model, optimizer=None, epoch=None):
         if split == 'train':
             update_learning_rate(opt, i + len(dataLoader)*(epoch-1), len(dataLoader), optimizer)
 
-        batch_cam, gt_3D, input_2D, action, subject, scale, bb_box, cam_ind, input_pressure = data
+        batch_cam, gt_3D, input_2D, action, subject, scale, bb_box, cam_ind, input_pressure, _frame_id = data
         [input_2D, gt_3D, batch_cam, scale, bb_box, input_pressure] = get_varialbe(split, [input_2D, gt_3D, batch_cam, scale, bb_box, input_pressure])
         # input_pressure = pressure_transform(input_pressure).unsqueeze(1) / 100.0
         input_pressure = input_pressure.unsqueeze(1) / 100.0

@@ -42,3 +42,7 @@ Thumbs.db
 *.h5
 *.hdf5
 *.log
+
+# Downloaded Release assets and packaged datasets
+/.artifacts/
+/pressure-packages/

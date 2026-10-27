@@ -1,0 +1,73 @@
+{
+  "dataset": {
+    "subjects": 20,
+    "frames": 779769,
+    "test_subjects": [
+      "cxw",
+      "szy",
+      "wym",
+      "hjw"
+    ],
+    "all_actions_test_frames": 154913,
+    "recorded_16_action_test_frames": 119787,
+    "aligned_2d_3d_ids": true,
+    "finite_pose_values": true,
+    "pressure_dataset_uploaded": false
+  },
+  "checkpoints": [
+    {
+      "checkpoint": "log_all/2d_p0_5823.pth",
+      "state_dict_entries": 277,
+      "strict_load": true,
+      "output_shapes": [
+        [
+          1,
+          1,
+          18,
+          3
+        ],
+        [
+          1,
+          351,
+          18,
+          3
+        ]
+      ],
+      "finite_outputs": true
+    },
+    {
+      "checkpoint": "log_all/no_refine_40_5453.pth",
+      "state_dict_entries": 277,
+      "strict_load": true,
+      "output_shapes": [
+        [
+          1,
+          1,
+          18,
+          3
+        ],
+        [
+          1,
+          351,
+          18,
+          3
+        ]
+      ],
+      "finite_outputs": true
+    }
+  ],
+  "environment": "Python 3.12, macOS arm64, torch 2.2.2; CPU validation only",
+  "full_evaluation_run": false,
+  "training_smoke": {
+    "p0_training_cpu_synthetic_batch": true,
+    "loss": 2.5905747413635254,
+    "production_cuda_not_tested": true
+  },
+  "regression_tests": {
+    "external_data_paths_and_padding": true,
+    "root_path_without_trailing_separator": true,
+    "release_install_and_repeat": true,
+    "different_local_file_not_overwritten": true,
+    "pressure_package_byte_identical_round_trip_frames": 5
+  }
+}

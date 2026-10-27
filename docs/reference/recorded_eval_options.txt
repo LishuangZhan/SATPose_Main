@@ -1,0 +1,48 @@
+==> Args:
+  actions: walking(stable),waist turning,deep squat,twisting,inline lunge,arm-waving,hurdle step,standing on toes,bending,sitting,push-ups,hand movements,posing,Active Straight-Leg Raise,waiting,Rotary Stability
+  batch_size: 8
+  channel: 256
+  checkpoint: log_all/checkpoint
+  crop_uv: 0
+  d_hid: 512
+  data_augmentation: True
+  dataset: PIM
+  downsample: 1
+  frames: 351
+  gpu: 0
+  in_channels: 2
+  keypoints: PIM_2d_V2
+  large_decay_epoch: 5
+  layers: 3
+  lr: 0.001
+  lr_decay: 0.95
+  lr_decay_large: 0.5
+  lr_refine: 1e-05
+  n_joints: 18
+  nepoch: 2000
+  out_all: 1
+  out_channels: 3
+  out_joints: 18
+  pad: 175
+  previous_best_threshold: inf
+  previous_ckpt: log_all/no_refine_40_5453.pth
+  previous_dir: 
+  previous_name: 
+  previous_refine_name: 
+  refine: False
+  refine_reload: False
+  reload: True
+  reverse_augmentation: False
+  root_path: dataset/
+  stride: 1
+  stride_num: [3, 9, 13]
+  subjects_test: cxw,szy,wym,hjw
+  subjects_train: cyf,czp,gjb,grx,jx,lsq,pyl,wlj,wyh,xns,yj,zls,zrn,wyf,jsf,yet
+  subset: 1
+  test: False
+  test_augmentation: True
+  train: 1
+  warmup_epochs: 3
+  weight_decay: 0.0
+  workers: 8
+==> Args:

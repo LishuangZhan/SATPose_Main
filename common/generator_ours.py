@@ -1,4 +1,11 @@
+import os
 import numpy as np
+
+
+SUBJECT_DIRECTORIES = {'zrn': "p10zrn", 'cyf': 'p11cyf', 'pyl': 'p12pyl', 'szy': 'p13szy', 'wyh': 'p14wyh',
+                           'gjb': 'p15gjb', 'grx': 'p16grx', 'lsq': 'p17lsq', 'wlj': 'p18wlj', 'xns': 'p19xns',
+                           'czp': 'p1czp', 'jsf': 'p20jsf', 'hjw': 'p2hjw', 'jx': 'p3jx', 'wym': 'p4wym',
+                           'yet': 'p5yet', 'cxw': 'p6cxw', 'wyf': 'p7wyf', 'yj': 'p8yj', 'zls': 'p9zls'}
 
 
 class ChunkedGenerator:
@@ -6,7 +13,8 @@ class ChunkedGenerator:
                  chunk_length=1, pad=0, causal_shift=0,
                  shuffle=False, random_seed=1234,
                  augment=False, reverse_aug=False, kps_left=None, kps_right=None, joints_left=None, joints_right=None,
-                 endless=False, out_all=False):
+                 endless=False, out_all=False, root_path='dataset/',
+                 pressure_root='dataset/PIMDataset_pro_V2'):
         assert poses_3d is None or len(poses_3d) == len(poses_2d), (len(poses_3d), len(poses_2d))
         assert cameras is None or len(cameras) == len(poses_2d)
 
@@ -15,11 +23,10 @@ class ChunkedGenerator:
         start_index = 0
 
         # ----------------- for pressure -----------------
-        self.sort_ind_list = np.load('dataset/PIM_sort/PIM_id_V2.npz', allow_pickle=True)['id_data'].item()
-        self.projection = {'zrn': "p10zrn", 'cyf': 'p11cyf', 'pyl': 'p12pyl', 'szy': 'p13szy', 'wyh': 'p14wyh',
-                           'gjb': 'p15gjb', 'grx': 'p16grx', 'lsq': 'p17lsq', 'wlj': 'p18wlj', 'xns': 'p19xns',
-                           'czp': 'p1czp', 'jsf': 'p20jsf', 'hjw': 'p2hjw', 'jx': 'p3jx', 'wym': 'p4wym',
-                           'yet': 'p5yet', 'cxw': 'p6cxw', 'wyf': 'p7wyf', 'yj': 'p8yj', 'zls': 'p9zls'}
+        with np.load(os.path.join(root_path, 'PIM_sort', 'PIM_id_V2.npz'), allow_pickle=True) as indices:
+            self.sort_ind_list = indices['id_data'].item()
+        self.pressure_root = pressure_root
+        self.projection = SUBJECT_DIRECTORIES
         # print(self.projection['zrn'])
         # exit()
 
@@ -300,15 +307,15 @@ class ChunkedGenerator:
         for pindex in range(low_2d_p, high_2d_p):
             ind_now = self.sort_ind_list[subject][action][pindex]
             proj_subject = self.projection[subject]
-            pressure_path = 'D:/pythonProject/DataProcessing/PIMDataset_pro_V2/%s/%s_%d.npz' % (
-                proj_subject, action, ind_now)
+            pressure_path = os.path.join(self.pressure_root, proj_subject, '%s_%d.npz' % (action, ind_now))
             # pressure_path = 'D:/pythonProject/DataProcessing/PIMDataset_pressure_gen_eval/%s/%s_%d.npz' % (
             #     proj_subject, action, ind_now)
             # pressure_path = 'D:/pythonProject/DataProcessing/PIMDataset_pressure_gen/%s/%s_%d.npz' % (
             #     proj_subject, action, ind_now)
             # pressure_path = 'D:/pythonProject/DataProcessing/PIMDataset_pressure_gen_14actions/%s/%s_%d.npz' % (
             #     proj_subject, action, ind_now)
-            pressure_data = np.load(pressure_path)['pressure']
+            with np.load(pressure_path) as pressure_file:
+                pressure_data = pressure_file['pressure']
             seq_pressure.append(pressure_data)
 
         seq_pressure = np.array(seq_pressure)

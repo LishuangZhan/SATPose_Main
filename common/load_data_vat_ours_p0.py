@@ -36,7 +36,8 @@ class Fusion(data.Dataset):
                                               augment=opt.data_augmentation, reverse_aug=opt.reverse_augmentation,
                                               kps_left=self.kps_left, kps_right=self.kps_right,
                                               joints_left=self.joints_left,
-                                              joints_right=self.joints_right, out_all=opt.out_all)
+                                              joints_right=self.joints_right, out_all=opt.out_all,
+                                              root_path=self.root_path, pressure_root=opt.pressure_root)
             print('INFO: Training on {} frames'.format(self.generator.num_frames()))
         else:
             self.keypoints = self.prepare_data(dataset, self.test_list)
@@ -48,7 +49,8 @@ class Fusion(data.Dataset):
                                               self.poses_test_2d,
                                               pad=self.pad, augment=False, kps_left=self.kps_left,
                                               kps_right=self.kps_right, joints_left=self.joints_left,
-                                              joints_right=self.joints_right)
+                                              joints_right=self.joints_right,
+                                              root_path=self.root_path, pressure_root=opt.pressure_root)
             self.key_index = self.generator.saved_index
             print('INFO: Testing on {} frames'.format(self.generator.num_frames()))
 

@@ -1,0 +1,61 @@
+{
+  "release_tag": "reproduction-v1",
+  "files": [
+    {
+      "file": "2d_p0_5823.pth",
+      "size": 111312535,
+      "sha256": "21e2d69be9dcb228809d4f75f3572ed8ed84870462a87b87ad31a4a73a92316d",
+      "destination": "log_all/2d_p0_5823.pth"
+    },
+    {
+      "file": "no_refine_40_5453.pth",
+      "size": 111312535,
+      "sha256": "94764014b422924d2ecc9cf6345b05201e4f2ddafb22f897cb7917bde8c7fa5a",
+      "destination": "log_all/no_refine_40_5453.pth"
+    },
+    {
+      "file": "pim-pose-annotations.zip",
+      "size": 405816919,
+      "sha256": "9b95786335bef9a6708e9d9968144bf61c6e4f29dea3e2696f1b6a3d34ced5ca",
+      "destination": "extract at repository root"
+    }
+  ],
+  "contents": [
+    {
+      "path": "dataset/PIM_sort/PIM_id_V2.npz",
+      "size": 6293798,
+      "sha256": "d265b8ce47f76669d797b9269e8d624273f7bf3adc1e39d1ff374c4e3d677589"
+    },
+    {
+      "path": "log_all/2d_p0_5823.pth",
+      "size": 111312535,
+      "sha256": "21e2d69be9dcb228809d4f75f3572ed8ed84870462a87b87ad31a4a73a92316d"
+    },
+    {
+      "path": "log_all/no_refine_40_5453.pth",
+      "size": 111312535,
+      "sha256": "94764014b422924d2ecc9cf6345b05201e4f2ddafb22f897cb7917bde8c7fa5a"
+    },
+    {
+      "path": "docs/reference/recorded_eval_options.txt",
+      "size": 1193,
+      "sha256": "3b021203567aa1c3c544216e3753fb944dec77d6085cedc4508ee66b5e729f2c"
+    },
+    {
+      "path": "docs/reference/Run Code.txt",
+      "size": 594,
+      "sha256": "c55cea6f33a7baf49c8c39500eebf0f5bb03bdd78f6c64514bf64ba564670877"
+    },
+    {
+      "path": "dataset/PIM_sort/PIM_2d_V2.npz",
+      "size": 224630808,
+      "sha256": "cf52fa23f336c3d99438d447e3fd5be8c5e0e06a4a89ec20efb401f136ccf85c"
+    },
+    {
+      "path": "dataset/PIM_sort/PIM_3d_V2.npz",
+      "size": 336917544,
+      "sha256": "eab1c760b9274bf64f80f15936b923e6201938de9a46913d4898d31bdccccf75"
+    }
+  ],
+  "pressure_dataset_included": false
+}
