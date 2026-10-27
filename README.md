@@ -2,7 +2,7 @@
 
 基于 PyTorch 的人体姿态估计代码，使用二维关键点和压力数据。仓库保存训练、评估和数据处理源码；大文件通过 [reproduction-v1 Release](https://github.com/LishuangZhan/SATPose_Main/releases/tag/reproduction-v1) 提供。
 
-**复现材料：两个历史命令引用的权重、完整姿态标注和帧索引通过 Release 提供；压力数据已在其他位置独立发布，本仓库不重复存储。** 仓库已公开，任何人都可以查看源码并下载 Release 附件。
+**复现材料：两个历史命令引用的权重、完整姿态标注和帧索引通过 Release 提供；压力数据已在其他位置独立发布，本仓库不重复存储。** 
 
 ## 1. 环境
 
